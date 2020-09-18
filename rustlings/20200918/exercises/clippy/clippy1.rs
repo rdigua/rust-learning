@@ -6,15 +6,15 @@
 // check clippy's suggestions from the output to solve the exercise.
 // Execute `rustlings hint clippy1` for hints :)
 
-// I AM DONE
-
+// I AM DONE  const, It should have an upper case name
+const MIN: f64 = 0.0000000001;
 fn main() {
     let x = 1.2331f64;
     let y = 1.2332f64;
-	let Errorf = 0.0001f64;
-	
-//    if y != x {
-	if (y-x).abs()< errorf {
+    if (y - x).abs() < MIN {
         println!("Success!");
     }
+    //if y != x {
+    //    println!("Success!");
+    //}
 }
