@@ -4,6 +4,14 @@
 - coding coding and coding  
 - question question and question.  
 
+## Revice
+
+***Again to check rust-lang***
+
+### Start form print 
+
+[print](./refresher/print.md)
+
 ## cookbook
 
 ### workspace
