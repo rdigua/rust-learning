@@ -145,3 +145,10 @@ These are all flags altering the behavior of the formatter.
     -   `#o`  - precedes the argument with a  `0o`
 -   `0`  - This is used to indicate for integer formats that the padding to  `width`  should both be done with a  `0`  character as well as be sign-aware. A format like  `{:08}`  would yield  `00000001`  for the integer  `1`, while the same format would yield  `-0000001`  for the integer  `-1`. Notice that the negative version has one fewer zero than the positive version. Note that padding zeros are always placed after the sign (if any) and before the digits. When used together with the  `#`  flag, a similar rule applies: padding zeros are inserted after the prefix but before the digits. The prefix is included in the total width.
 
+more
+
+[rust_book-format](doc/rust/html/std/fmt/index.html)
+
+[macro_use](https://danielkeep.github.io/quick-intro-to-macros.html)
+
+[macro_guide](https://gist.github.com/Koxiaet/8c05ebd4e0e9347eb05f265dfb7252e1)
