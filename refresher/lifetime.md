@@ -73,8 +73,30 @@ fn first_word(s: &str) -> &str {
 }
 ```
 
-### 
 
+
+### where is moved lifetime
+```
+fn fn1(s: &mut String) {}
+fn main() {
+    let mut s = "".to_string();
+    assert!(s.is_empty());
+    let s1 = &mut s;
+    fn1(s1);  // s1 没有失效
+    s1.len();
+    {
+        let s2: &mut String = s1;
+    }
+    s1.len();  // s1 没有失效
+
+    {
+         let s2=s1;
+         //let s2: &mut String = s1;
+    }
+    
+    s1.len(); // s1 失效了
+}
+```
 
 ## more
 
