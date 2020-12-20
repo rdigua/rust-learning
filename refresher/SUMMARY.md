@@ -52,6 +52,7 @@
 
 ## Another
 
+- [metadata](./metadata)
 - []()
 
 - []()
