@@ -23,7 +23,7 @@
 
 - [owner](./ownership.md)
 
-- [generic](./generic.md)
+- [generic](./generics.md)
 
 ## security
 
@@ -38,15 +38,15 @@
 
 ## Projcet|Development
 
-- []()
+- [projects](./projects.md)
 
 - []()
 
 - []()
 
-- []()
+- [metaprogramming](./metaprogramming.md)
 
-- []()
+- [await](./await.md)
 
 - []()
 
