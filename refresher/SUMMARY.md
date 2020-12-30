@@ -52,8 +52,9 @@
 
 ## Another
 
-- [metadata](./metadata)
-- []()
+- [metadata](./metadata.md)
+
+- [supplementary](./supplementary.md)
 
 - []()
 
