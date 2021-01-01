@@ -65,3 +65,20 @@ fn main() {
     generate_workout(simulated_user_specified_value, simulated_random_number);
 }
 ```
+
+### closure return a reference
+```
+fn main() {
+    let a = String::from("foo");
+    let f = || &*a;
+    fn_immunity(f);
+    println!("{}", a);
+}
+
+fn fn_immunity<'a, F>(f: F)
+    where
+        F: Fn() -> &'a str,
+{
+    println!("calling Fn closure from fn, {}", f());
+}
+```
