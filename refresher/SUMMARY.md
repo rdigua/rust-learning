@@ -15,7 +15,7 @@
 
 - [function](./function.md)
 
-- [String](./String.md)
+- [String](./string.md)
 
 - [struct](./struct.md)
 
@@ -40,7 +40,7 @@
 
 - [projects](./projects.md)
 
-- []()
+- [pattern](./patterns.md)
 
 - []()
 
