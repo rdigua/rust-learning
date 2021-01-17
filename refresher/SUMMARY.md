@@ -2,10 +2,11 @@
 
 - Install [Install](./install.md)
 
+- first [First](./first.md)
+
 ## Base|grammar
 
 - [Print](./print.md)
-
 
 - [Macro](./macro.md)
 
@@ -13,7 +14,7 @@
 
 - [variable](./variable.md)
 
-- [function](./function.md)
+- [function](./fns.md)
 
 - [String](./string.md)
 
@@ -42,7 +43,7 @@
 
 - [pattern](./patterns.md)
 
-- []()
+- [document](./docs.md)
 
 - [metaprogramming](./metaprogramming.md)
 
