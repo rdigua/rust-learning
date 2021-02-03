@@ -111,3 +111,28 @@ fn calculate_hash<T: Hash>(t: &T) -> u64 {
     s.finish()
 }
 ```
+
+
+## slice 
+
+***copy_from_slice***:
+
+```
+#[repr(C)]
+pub struct Row {
+    id: i32,
+    user: [char; 32],
+    email: [char; 255],
+}
+
+impl Row {
+    pub fn new(id: i32, user_str: &str, email_str: &str) -> Self {
+        let mut user: [char; 32] = ['\0'; 32];
+        let mut email: [char; 255] = ['\0'; 255];
+        user.copy_from_slice(&user_str.chars().collect::<Box<[char]>>());
+        email.copy_from_slice(&email_str.chars().collect::<Box<[char]>>());
+        Row { id, user, email }
+    }
+}
+```
+
