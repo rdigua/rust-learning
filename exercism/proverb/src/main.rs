@@ -8,6 +8,6 @@ fn main() {
         "For want of a nail the shoe was lost.",
         "And all for the want of a nail.",
     ]
-        .join("\n");
+    .join("\n");
     println!("{}", expected);
 }
