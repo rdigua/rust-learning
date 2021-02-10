@@ -60,3 +60,41 @@ fn main() {
     }
 }
 ```
+
+### walkdir:
+
+```
+extern crate walkdir;
+use walkdir::WalkDir;
+fn main() {
+    for e in WalkDir::new(".").into_iter().filter_map(|e| e.ok()) {
+        if e.metadata().unwrap().is_file() {
+            println!("{}", e.path().display());
+        }
+    }
+}
+```
+
+
+### compare file old or new
+```
+fn is_input_file_outdated<P1, P2>(input: P1, output: P2) -> io::Result<bool>
+where
+    P1: AsRef<Path>,
+    P2: AsRef<Path>,
+{
+    let out_meta = fs::metadata(output);
+    if let Ok(meta) = out_meta {
+        let output_mtime = meta.modified()?;
+
+        // if input file is more recent than our output, we are outdated
+        let input_meta = fs::metadata(input)?;
+        let input_mtime = input_meta.modified()?;
+
+        Ok(input_mtime > output_mtime)
+    } else {
+        // output file not found, we are outdated
+        Ok(true)
+    }
+}
+```

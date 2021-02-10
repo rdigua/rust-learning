@@ -15,3 +15,13 @@ is_hello(s);
 let s = "hello".to_string();
 is_hello(s);
 ```
+
+```
+#![allow(unused)]
+fn main() {
+let s = String::from("hello");
+
+let b = s.into_boxed_str();
+println!("{}",b);
+}
+```

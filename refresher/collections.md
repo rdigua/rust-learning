@@ -136,3 +136,22 @@ impl Row {
 }
 ```
 
+*** How about RandomState with new?***
+
+```
+#![allow(unused)]
+fn main() {
+use std::collections::HashMap;
+use std::collections::hash_map::RandomState;
+
+let s = RandomState::new();
+let mut map = HashMap::with_hasher(s);
+if map.is_empty(){
+    println!("The map it empty");
+} else  {
+    println!("{:?}",map);
+}
+map.insert(1, 2);
+println!("{:?}",map)
+}
+```

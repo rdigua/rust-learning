@@ -109,3 +109,56 @@ Also note that `my_number` is not `mut`. We didn't give it a value until we gave
 	
 	
 	
+## any
+
+
+```
+#![allow(unused)]
+#![feature(type_name_of_val)]
+fn main() {
+use std::any::type_name_of_val;
+
+let x = 1;
+println!("{}", type_name_of_val(&x));
+let y = 1.0;
+println!("{}", type_name_of_val(&y));
+}
+```
+
+
+## ref
+
+```
+#![allow(unused)]
+fn main() {
+let maybe_name = Some(String::from("Alice"));
+// Using `ref`, the value is borrowed, not moved ...
+match maybe_name {
+    Some(ref n) => println!("Hello, {}", n),
+    _ => println!("Hello, world"),
+}
+// ... so it's available here!
+println!("Hello again, {}", maybe_name.unwrap_or("world".into()));
+}
+```
+
+## lifetime
+
+```
+    let mut x = 5;
+//    let y = &x; 
+    let y = &mut x;
+
+    println!("{}", x);
+
+    println!("{}", y); 
+	/*error. let y = &mut x; 
+  |             ------ mutable borrow occurs here
+7 |     println!("{}", x);
+  |                    ^ immutable borrow occurs here
+8 |
+9 |     println!("{}", y);
+  |                    - mutable borrow later used here
+  */
+
+```
