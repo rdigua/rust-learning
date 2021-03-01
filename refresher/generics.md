@@ -26,7 +26,20 @@ fn main() {
 }
 ```
 
+```
+fn sum<T:From<f32>>(min:i32, max:i32)->T{   
+	let result = 3.14 + min as f32 + max as f32;
+	return result.into();
+}
 
+fn main(){
+	 let a:f64  = sum(15,100);    
+	 let b:f32  = sum(15,100);    
+	 let c = sum::<f32>(15,100);  
+	 let d = sum::<f64>(15,100);  
+	 println!("{},{},{},{}",a,b,c,d);
+}
+```
 
 
 

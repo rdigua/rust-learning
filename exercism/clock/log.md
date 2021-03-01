@@ -3,6 +3,46 @@
 ## Another person solution
 
 ```
+extern crate num;
+
+use std::fmt;
+use num::Integer;
+
+#[derive(Debug)]
+pub struct Clock {
+    hours:i32,
+    minutes:i32
+}
+
+
+impl Clock {
+    pub fn new(h: i32, m: i32) -> Clock {
+        let mut norm_hours = (h + m.div_floor(&60) ) % 24;
+        if norm_hours < 0 { norm_hours = 24 + norm_hours; };  // so if norm_hours = -2, 24 + (-2) = 22
+        let mut norm_minutes = m % 60;
+        if norm_minutes < 0 { norm_minutes = 60 + norm_minutes; }; // so if norm_mins = -32, 60 + (-32) = 28
+        Clock { hours: norm_hours, minutes: norm_minutes }
+    }
+    pub fn add_minutes(&self, m:i32) -> Clock {
+        Clock::new(self.hours, self.minutes + m)
+    }
+}
+
+
+impl fmt::Display for Clock {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{:02}:{:02}", self.hours, self.minutes)
+    }
+}
+
+impl PartialEq for Clock {
+    fn eq(&self, other: &Clock) -> bool {
+        self.hours == other.hours && self.minutes == other.minutes
+    }
+}
+```
+
+```
 use chrono::{Duration, NaiveTime};
 use std::fmt;
 
@@ -99,6 +139,115 @@ fn modulo(a: i32, b: i32) -> i32 {
 		return r + b;
 	}
 	r
+}
+```
+
+```
+use std::fmt;
+
+// Amount of minutes in a day, 24 * 60
+static DAY_MINS: i32 = 1440;
+
+#[derive(Debug)]
+pub struct Clock(i32);
+
+impl Clock {
+    pub fn new(hours: i32, minutes: i32) -> Clock {
+        // Total amount of entered minutes
+        let time = hours * 60 + minutes;
+
+        // The idea here is to work around negative modulo
+        // If it negative, it will just be substracted
+        // from max value.
+        // It it is positive, it will be divided twice,
+        // but lets hope that's not a big performance loss
+        let wrapped_mins =
+            (time % DAY_MINS + DAY_MINS) % DAY_MINS;
+
+        Clock(wrapped_mins)
+    }
+
+    pub fn add_minutes(&self, minutes: i32) -> Clock {
+        // All wrapping is done in ::new method, so
+        // clock with extra minutes is passed there
+        Clock::new(0, self.0 + minutes)
+    }
+}
+
+impl fmt::Display for Clock {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        let Clock(time) = *self;
+        write!(f, "{:02}:{:02}", time / 60, time % 60)
+    }
+}
+
+impl PartialEq for Clock {
+    fn eq(&self, other: &Clock) -> bool {
+        self.0 == other.0
+    }
+}
+```
+
+```
+use std::fmt;
+
+#[derive(Debug)]
+pub struct Clock {
+    minutes: isize,
+}
+
+impl Clock {
+    pub fn new(hours: isize, minutes: isize) -> Self {
+        Clock { minutes: 0 }.add_minutes((hours * 60) + minutes)
+    }
+
+    pub fn add_minutes(&self, mins: isize) -> Self {
+        //1440 minutes per day
+        let x = self.minutes + mins;
+        Clock { minutes: ((x % 1440) + 1440) % 1440 }
+    }
+}
+
+impl fmt::Display for Clock {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{:02}:{:02}", self.minutes / 60, self.minutes % 60)
+    }
+}
+
+impl PartialEq for Clock {
+    fn eq(&self, other: &Clock) -> bool {
+        (self.minutes == other.minutes)
+    }
+}
+```
+
+```
+use std::fmt;
+
+const DAY: i32 = 24 * 60;
+
+#[derive(Debug, PartialEq)]
+pub struct Clock(i32);
+
+fn wrapper(num: i32, wrap: i32) -> i32 {
+    (num + ((-num / wrap) * wrap) + wrap) % wrap
+}
+
+impl Clock {
+    pub fn new(h: i32, m: i32) -> Clock {
+        Clock(wrapper(wrapper(h, 24) * 60 + m, DAY))
+    }
+
+    pub fn add_minutes(&mut self, offset: i32) -> Self {
+        Clock(wrapper(self.0 + offset, DAY))
+    }
+}
+
+
+impl fmt::Display for Clock {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{:02}:{:02}", self.0 / 60, self.0 % 60)
+    }
 }
 ```
 
