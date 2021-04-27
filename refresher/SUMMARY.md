@@ -6,7 +6,7 @@
 
 ## Base|grammar
 
-- [Print](./print.md)
+- [Printf](./printf.md)
 
 - [Macro](./macro.md)
 

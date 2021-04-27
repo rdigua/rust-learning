@@ -1,4 +1,4 @@
-# Print
+# Printf
 
 ```
 cargo new two
