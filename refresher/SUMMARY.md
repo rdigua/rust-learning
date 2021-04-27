@@ -1,8 +1,8 @@
 # Summay
 
-- Install [Install](./install.md)
+- [Install](./install.md)
 
-- first [First](./first.md)
+- [First](./first.md)
 
 ## Base|grammar
 
