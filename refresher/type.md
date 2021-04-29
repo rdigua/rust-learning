@@ -1,8 +1,9 @@
-# type
+# Type
 
 ## number
 
 ### flot
+
 ```
 use num_traits::float::Float; // 0.2.6
 use std::ops::Mul;
