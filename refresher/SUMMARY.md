@@ -39,9 +39,9 @@
 
 ## Projcet|Development
 
-- [projects](./projects.md)
+- [Projects](./projects.md)
 
-	        - [A little toy](./get-number.md)
+    - [A little toy](./get-number.md)
 
 - [pattern](./patterns.md)
 
