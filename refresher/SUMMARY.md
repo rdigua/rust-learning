@@ -41,7 +41,7 @@
 
 - [projects](./projects.md)
 
-	        - [A little toy](./get-number.md)
+     - [A_little_toy](./get-number.md)
 
 - [pattern](./patterns.md)
 
