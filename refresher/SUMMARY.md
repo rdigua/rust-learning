@@ -10,21 +10,21 @@
 
 - [Macro](./macro.md)
 
-- [type](./type.md)
+- [Type](./type.md)
 
-- [variable](./variable.md)
+- [Variable](./variable.md)
 
 - [function](./fns.md)
 
 - [String](./string.md)
 
-- [struct](./struct.md)
+- [Struct](./struct.md)
 
-- [collections](./collections.md)
+- [Collections](./collections.md)
 
-- [owner](./ownership.md)
+- [Owner](./ownership.md)
 
-- [generic](./generics.md)
+- [Generic](./generics.md)
 
 ## security
 

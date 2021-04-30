@@ -35,3 +35,11 @@ pub fn capitalize_first(input: &str) -> String {
     }
 }
 ```
+
+```
+//Selcect number form string, it will be a usize.
+String:String = ss.chars().filter(|x| x.is_digit(10)).collect();
+//Selcect number form string, it will be a float.
+String:String = ss.chars().filter(|x| x.is_digit(10)||x='.').collect();
+
+```
