@@ -41,6 +41,8 @@
 
 - [projects](./projects.md)
 
+	        - [A little toy](./get-number.md)
+
 - [pattern](./patterns.md)
 
 - [document](./docs.md)
@@ -57,7 +59,7 @@
 
 - [supplementary](./supplementary.md)
 
-- []()
+- [Record](./record.md)
 
 - []()
 
