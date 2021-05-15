@@ -84,8 +84,10 @@ rustup doc --cargo
 
 Then to start using Rust.
 
-`rustc` `cargo` `rustup` 
+`rustc`, `cargo` and `rustup` 
 
+
+***important***
 
 More [rust doc book-installation](https://doc.rust-lang.org/book/ch01-01-installation.html)
 
