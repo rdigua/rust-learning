@@ -1,0 +1,8 @@
+title = "xfplay"
+
+[bibizyz]
+website = "http://www.qszy9.com/"
+baseurl = "http://www.qszy9.com/"
+listreg = "align=\"left\" height=\"29\" width=\"459\"><a href=\"(.+?)\" target=\"_blank\">(.+?)</a></td>"
+elementreg = "<li><input name=\"copy_sel\" type=\"checkbox\" value=\"(xfplay://.+?)\"><a href="
+showreg = "<tr><td align=\"left\" height=\"29\"><font style=\"font:bold 14px '微软雅黑';padding-left:10px\">(.+?)先锋影音 地址</font></td></tr>"
