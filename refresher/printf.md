@@ -49,6 +49,18 @@ see rustdoc doc/rust/html/std/fmt/index.html
     -   `#o`  - precedes the argument with a  `0o`
 -   `0`  - This is used to indicate for integer formats that the padding to  `width`  should both be done with a  `0`  character as well as be sign-aware. A format like  `{:08}`  would yield  `00000001`  for the integer  `1`, while the same format would yield  `-0000001`  for the integer  `-1`. Notice that the negative version has one fewer zero than the positive version. Note that padding zeros are always placed after the sign (if any) and before the digits. When used together with the  `#`  flag, a similar rule applies: padding zeros are inserted after the prefix but before the digits. The prefix is included in the total width.
 
+`\t` will make a tab
+
+
+```rust
+fn main() {
+    println!("{:?}", br##"I like to write "#"."##);
+}
+```
+
+That will print `[73, 32, 108, 105, 107, 101, 32, 116, 111, 32, 119, 114, 105, 116, 101, 32, 34, 35, 34, 46]`.
+
+
 ## pointer
 
 ```

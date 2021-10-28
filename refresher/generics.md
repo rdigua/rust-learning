@@ -41,8 +41,36 @@ fn main(){
 }
 ```
 
+```rust
+use std::fmt;
+struct Cat {
+    name: String,
+    age: u8,
+}
+
+impl fmt::Display for Cat {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{} is a cat who is {} years old.", self.name, self.age)
+    }
+}
+
+fn print_cats(pet: String) {
+    println!("{}", pet);
+}
+
+fn main() {
+    let mr_mantle = Cat {
+        name: "Reggie Mantle".to_string(),
+        age: 4,
+    };
+
+    print_cats(mr_mantle.to_string()); // Turn him into a String here
+    println!("Mr. Mantle's String is {} letters long.", mr_mantle.to_string().chars().count()); // Turn him into chars and count them
+}
+```
 
 
+By the way, if you implement `Display` then you get the `ToString` trait for free. That's because you use the `format!` macro for the `.fmt()` function, which lets you make a `String` with `.to_string()`. So we could do something like this where we pass `reggie_mantle` to a function that wants a `String`, or anything else.
 
 
 
