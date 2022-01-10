@@ -30,3 +30,17 @@ match maybe_name.as_ref() {
 println!("Hello again, {}", maybe_name.unwrap_or("world".into()));
 ```
 
+```
+
+fn foo<T: AsRef<str>>(s: T) {
+    let slice = s.as_ref();
+	println!("{}",slice);
+}
+
+fn main(){
+	
+	foo("str print");
+	foo("String print".to_string());
+	
+}
+```

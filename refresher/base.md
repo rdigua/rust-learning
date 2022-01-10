@@ -218,6 +218,55 @@ let expressionResult = match variable_expression {
     println!("{}", english_month)
 ```
 
+```
+fn main() {
+    let sky = "cloudy";
+    let temperature = "warm";
+
+    match (sky, temperature) {
+        ("cloudy", "cold") => println!("It's dark and unpleasant today"),
+        ("clear", "warm") => println!("It's a nice day"),
+        ("cloudy", "warm") => println!("It's dark but not bad"),
+        _ => println!("Not sure what the weather is."),
+    }
+}
+```
+
+```
+fn main() {
+    let children = 5;
+    let married = true;
+
+    match (children, married) {
+        (children, married) if married == false => println!("Not married with {} children", children),
+        (children, married) if children == 0 && married == true => println!("Married but no children"),
+        _ => println!("Married? {}. Number of children: {}.", married, children),
+    }
+}
+```
+
+```
+fn match_colours(rbg: (i32, i32, i32)) {
+    match rbg {
+        (r, _, _) if r < 10 => println!("Not much red"),
+        (_, b, _) if b < 10 => println!("Not much blue"),
+        (_, _, g) if g < 10 => println!("Not much green"),
+        _ => println!("Each colour has at least 10"),
+    }
+}
+
+fn main() {
+    let first = (200, 0, 0);
+    let second = (50, 50, 50);
+    let third = (200, 50, 0);
+
+    match_colours(first);
+    match_colours(second);
+    match_colours(third);
+
+}
+```
+
 ## 循环语句
 
 `循环语句`一般是只在程序重复执行某块代码逻辑的词语，`循环`其实就是一种重复，在`满足指定的条件`下，`重复的做某些事情`。就好比如只要时间没到 18:30，那么我们一直在重复的上班。

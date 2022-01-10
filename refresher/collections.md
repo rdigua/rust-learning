@@ -155,3 +155,26 @@ map.insert(1, 2);
 println!("{:?}",map)
 }
 ```
+
+*** Vec<Vec<String>>***
+```
+fn main() {
+    let mut num_vec = Vec::new();
+    println!("{}", num_vec.capacity()); // 0 elements: prints 0
+    num_vec.push('a'); // add one character
+    println!("{}", num_vec.capacity()); // 1 element: prints 4. Vecs with 1 item always start with capacity 4
+    num_vec.push('a'); // add one more
+    num_vec.push('a'); // add one more
+    num_vec.push('a'); // add one more
+    println!("{}", num_vec.capacity()); // 4 elements: still prints 4.
+    num_vec.push('a'); // add one more
+    println!("{}", num_vec.capacity()); // prints 8. We have 5 elements, but it doubled 4 to 8 to make space
+    let mut num_vec: Vec<Vec<String>> = Vec::new();
+    num_vec.push(vec!["1string".to_string(), "2string".to_string()]);
+    num_vec.push(vec!["3string".to_string(), "4string".to_string()]);
+    num_vec.push(["5string".to_string(), "6string".to_string()].into());
+    num_vec.push(["7string".to_string(), "8string".to_string()].into());
+    println!("{:?}", num_vec);
+}
+
+```
